@@ -21,8 +21,9 @@ export default {
   methods:{
     async seachPost(){
        await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.code}?apiKey=Cpar2ZfylzfplDbwHNzLAIeIg9eSwByGnpcEpzc`)
-       .then(response=>(this.addressData=response.data))  
-       this.addressShow=this.addressData.allAddress       
+       .then(response=>(this.addressData=response.data[0]))  
+
+       this.addressShow=this.addressData.allAddress    
     }
   }
 }
